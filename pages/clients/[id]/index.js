@@ -8,7 +8,7 @@ const ClientProjectsPage = () => {
   const loadProjectHandler = () => {
     router.push({
       pathname: "/clients/[id]/[clientprojectid]",
-      query: { id: router.query, clientprojectid: "projeact1" },
+      query: { id: "cpk", clientprojectid: "projeact1" },
     });
   };
 
