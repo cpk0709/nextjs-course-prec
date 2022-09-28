@@ -17,12 +17,6 @@ const ClientPage = () => {
             </li>
           );
         })}
-        {/* <li>
-          <Link href="/clients/cpk">Phil Choi</Link>
-        </li>
-        <li>
-          <Link href="/clients/manu">Manuel</Link>
-        </li> */}
       </ul>
     </div>
   );
