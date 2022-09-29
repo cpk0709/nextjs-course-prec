@@ -23,7 +23,7 @@ const EventDetailPage = () => {
 
   return (
     <>
-      <EventSummary />
+      <EventSummary title={event.title} />
       <EventLogistics
         date={event.date}
         address={event.location}
