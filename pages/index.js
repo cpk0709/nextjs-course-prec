@@ -1,6 +1,7 @@
 import Link from "next/link";
 import styled from "styled-components";
 import { getFeaturedEvents } from "../dummy-data";
+import EventList from "../components/events/event-list";
 
 const HomePage = (props) => {
   const featuredEvents = getFeaturedEvents();
@@ -8,7 +9,7 @@ const HomePage = (props) => {
 
   return (
     <div>
-      <h1>The Home Page</h1>
+      <EventList items={featuredEvents} />
     </div>
   );
 };
