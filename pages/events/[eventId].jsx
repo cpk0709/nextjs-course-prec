@@ -13,14 +13,6 @@ const EventDetailPage = () => {
     return <h1>No event found!</h1>;
   }
 
-  // const humanReadableDate = new Date(event.date).toLocaleDateString("ko-KR", {
-  //   year: "numeric",
-  //   month: "long",
-  //   day: "numeric",
-  // });
-
-  // const formattedAddress = event.location.replace(", ", "\n");
-
   return (
     <>
       <EventSummary title={event.title} />
