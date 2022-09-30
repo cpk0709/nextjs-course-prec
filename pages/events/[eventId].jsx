@@ -23,7 +23,7 @@ const EventDetailPage = () => {
         imageAlt={event.title}
       />
       <EventContent>
-        <p>event.description</p>
+        <p>{event.description}</p>
       </EventContent>
     </>
   );
