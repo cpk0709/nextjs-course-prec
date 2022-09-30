@@ -4,11 +4,14 @@ import { getFilteredEvents } from "../../dummy-data";
 import { useState } from "react";
 
 const EventSearch = (props) => {
+  const { setEventList } = props;
+
   const [year, setYear] = useState("2022");
   const [month, setMonth] = useState("1");
 
   const submitHandler = () => {
     const resultEvent = getFilteredEvents({ year, month });
+    setEventList(resultEvent);
   };
 
   const onChangeYearHandler = (e) => {
