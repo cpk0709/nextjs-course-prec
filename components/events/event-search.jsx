@@ -1,19 +1,39 @@
 import Button from "../ui/button";
+import classes from "./event-search.module.css";
+import { getFilteredEvents } from "../../dummy-data";
+import { useState } from "react";
 
 const EventSearch = (props) => {
+  const [year, setYear] = useState("2022");
+  const [month, setMonth] = useState("1");
+
+  const submitHandler = () => {
+    const resultEvent = getFilteredEvents({ year, month });
+  };
+
+  const onChangeYearHandler = (e) => {
+    setYear(e.currentTarget.value);
+  };
+
+  const onChangeMonthHandler = (e) => {
+    setMonth(e.currentTarget.value);
+  };
+
   return (
-    <form>
-      <div>
-        <div>
+    <div className={classes.form}>
+      <div className={classes.controls}>
+        <div className={classes.control}>
           <label htmlFor="year">Year</label>
-          <select id="year">
-            <option value="2021">2021</option>
+          <select onChange={onChangeYearHandler} id="year">
             <option value="2022">2022</option>
+            <option value="2021">2021</option>
+            <option value="2020">2020</option>
+            <option value="2019">2019</option>
           </select>
         </div>
-        <div>
+        <div className={classes.control}>
           <label htmlFor="month">Month</label>
-          <select id="month">
+          <select onChange={onChangeMonthHandler} id="month">
             <option value="1">January</option>
             <option value="2">February</option>
             <option value="3">March</option>
@@ -29,7 +49,8 @@ const EventSearch = (props) => {
           </select>
         </div>
       </div>
-    </form>
+      <Button onClick={submitHandler}>Find Events</Button>
+    </div>
   );
 };
 
