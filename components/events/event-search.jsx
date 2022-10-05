@@ -7,6 +7,7 @@ const EventSearch = (props) => {
   const monthInputRef = useRef();
 
   const submitHandler = (event) => {
+    // 새로고침 방지
     event.preventDefault();
 
     const selectedYear = yearInputRef.current.value;
