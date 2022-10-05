@@ -23,7 +23,7 @@ const EventSearch = (props) => {
   };
 
   return (
-    <div className={classes.form}>
+    <form className={classes.form}>
       <div className={classes.controls}>
         <div className={classes.control}>
           <label htmlFor="year">Year</label>
@@ -53,7 +53,7 @@ const EventSearch = (props) => {
         </div>
       </div>
       <Button onClick={submitHandler}>Find Events</Button>
-    </div>
+    </form>
   );
 };
 
