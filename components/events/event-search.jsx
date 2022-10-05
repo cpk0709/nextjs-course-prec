@@ -4,30 +4,17 @@ import { getFilteredEvents } from "../../dummy-data";
 import { useState } from "react";
 
 const EventSearch = (props) => {
-  const { setEventList } = props;
-
-  const [year, setYear] = useState("2022");
-  const [month, setMonth] = useState("1");
-
-  const submitHandler = () => {
-    const resultEvent = getFilteredEvents({ year, month });
-    setEventList(resultEvent);
-  };
-
-  const onChangeYearHandler = (e) => {
-    setYear(e.currentTarget.value);
-  };
-
-  const onChangeMonthHandler = (e) => {
-    setMonth(e.currentTarget.value);
+  const submitHandler = (event) => {
+    event.preventDefault();
+    console.log("!!!");
   };
 
   return (
-    <form className={classes.form}>
+    <form className={classes.form} onSubmit={submitHandler}>
       <div className={classes.controls}>
         <div className={classes.control}>
           <label htmlFor="year">Year</label>
-          <select onChange={onChangeYearHandler} id="year">
+          <select id="year">
             <option value="2022">2022</option>
             <option value="2021">2021</option>
             <option value="2020">2020</option>
@@ -36,7 +23,7 @@ const EventSearch = (props) => {
         </div>
         <div className={classes.control}>
           <label htmlFor="month">Month</label>
-          <select onChange={onChangeMonthHandler} id="month">
+          <select id="month">
             <option value="1">January</option>
             <option value="2">February</option>
             <option value="3">March</option>
