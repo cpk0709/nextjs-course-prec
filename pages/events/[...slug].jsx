@@ -1,4 +1,4 @@
-import { filter } from "mongodb/lib/core/connection/logger";
+import { getFilteredEvents } from "../../dummy-data";
 import { useRouter } from "next/router";
 
 const FilteredEventsPage = () => {
@@ -15,6 +15,28 @@ const FilteredEventsPage = () => {
 
   const numYear = +filteredYear;
   const numMonth = +filteredMonth;
+
+  if (
+    isNaN(numYear) ||
+    isNaN(numMonth) ||
+    numYear > 2030 ||
+    numYear < 2017 ||
+    numMonth < 1 ||
+    numMonth > 12
+  ) {
+    return <p>Invalid filter. Please adjust your values!</p>;
+  }
+
+  const filteredEvents = getFilteredEvents({
+    year: numYear,
+    month: numMonth,
+  });
+
+  if (!filteredEvents || filteredEvents.length === 0) {
+    return <p>No events found for the chosen filter!</p>;
+  }
+
+  console.log(filteredEvents);
 
   return (
     <div>
